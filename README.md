@@ -1,4 +1,4 @@
-# OpenGameInput
+![OpenGameInput](banner.png)
 
 OpenGameInput (**OGI**, or "OG Input") is a **simple, platform-agnostic input abstraction layer meant for games, written in C++17**. 
 
