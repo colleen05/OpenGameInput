@@ -6,7 +6,7 @@
 
 project(Examples)
 
-file(GLOB_RECURSE EXAMPLES_SOURCE_FILES "*.cpp")
+file(GLOB EXAMPLES_SOURCE_FILES "*.cpp")
 
 foreach(EXAMPLE_SOURCE_FILE ${EXAMPLES_SOURCE_FILES})
     # Get example name
