@@ -10,11 +10,12 @@ if(NOT DEFINED OGI_EXAMPLES_BACKEND)
     message(FATAL_ERROR "OpenGameInput examples cannot be built: Please set OGI_EXAMPLES_BACKEND.")
 else()
     if(OGI_EXAMPLES_BACKEND STREQUAL "GLFW")
-        set(BACKEND_LIB "glfw")
+        set(BACKEND_LIBS "glfw;OpenGL::GL")
         set(BACKEND_DIR "${CMAKE_SOURCE_DIR}/backends/glfw3")
         set(BACKEND_SOURCE "${BACKEND_DIR}/ogi_impl_glfw3.cpp")
         set(BACKEND_HEADER "${BACKEND_DIR}/ogi_impl_glfw3.hpp")
         add_subdirectory("external/glfw3")
+        find_package(OpenGL REQUIRED)
     else()
         message(FATAL_ERROR "OpenGameInput examples cannot be built: Unknown backend \"${OGI_EXAMPLES_BACKEND}\". Examples cannot use custom backends.")
     endif()
@@ -38,6 +39,6 @@ foreach(EXAMPLE_SOURCE_FILE ${EXAMPLES_SOURCE_FILES})
     target_link_libraries(
         ${EXAMPLE_NAME}
         OpenGameInput
-        ${BACKEND_LIB}
+        ${BACKEND_LIBS}
     )
 endforeach()
