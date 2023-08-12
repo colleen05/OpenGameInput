@@ -8,7 +8,12 @@
 
 #include <iostream>
 
-void ogi::init() {
+void _key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+    return;
+}
+
+void ogiGLFW::init(GLFWwindow *window) {
     ogi::print_lib_info();
+    glfwSetKeyCallback(window, &_key_callback);
     return;
 }

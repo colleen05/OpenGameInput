@@ -16,8 +16,8 @@
 #include "GLFW/glfw3.h"
 #include "oginput/ogi.hpp"
 
-namespace ogi {
-    void init();
+namespace ogiGLFW {
+    void init(GLFWwindow *window);
 }
 
 #endif

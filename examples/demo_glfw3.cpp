@@ -9,14 +9,10 @@
 int main() {
     if(!glfwInit()) return -1;
 
-    ogi::init();
-
     GLFWwindow *window = glfwCreateWindow(640, 480, "OpenGameInput", NULL, NULL);
+    if(!window) { glfwTerminate(); return -1; }
 
-    if(!window) {
-        glfwTerminate();
-        return -1;
-    }
+    ogiGLFW::init(window);
 
     glfwMakeContextCurrent(window);
 
