@@ -4,9 +4,9 @@
 // License: MIT
 // https://github.com/colleen05/OpenGameInput
 
-#include "oginput/ogi.hpp"
+#include "ogi_impl_glfw3.hpp"
 
 int main() {
-    ogi::print_lib_info();
+    ogi::init();
     return 0;
 }

@@ -35,6 +35,6 @@ target_include_directories(
 )
 
 # Examples
-if(${BUILD_EXAMPLES})
+if(${OGI_BUILD_EXAMPLES})
     add_subdirectory("examples")
 endif()
