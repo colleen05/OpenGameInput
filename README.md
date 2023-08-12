@@ -33,3 +33,15 @@ Building with CMake for Visual Studio or Xcode can be a little more involved or 
     cmake -G Ninja ..
     ninja
     ```
+
+## Logos
+
+The OpenGameInput logo (shown in `logo.svg` and `logo.png`) may be used anywhere completely freely.
+I just ask that you don't claim it is your own original work, and that you please give credit. 
+
+I consider the following fair credit:
+- Clearly associating it with the full name "OpenGameInput"
+- Attributing me by "Colleen" or "colleen05"
+- Linking to [my website](https://colleen05.me/)
+- Linking to [this repository](https://github.com/colleen05/OpenGameInput)
+- Using it in material directly related to or about OpenGameInput
