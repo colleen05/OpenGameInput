@@ -12,7 +12,7 @@ int main() {
     GLFWwindow *window = glfwCreateWindow(640, 480, "OpenGameInput", NULL, NULL);
     if(!window) { glfwTerminate(); return -1; }
 
-    ogiGLFW::init(window);
+    ogi::system ogi = ogiGLFW::init(window);
 
     glfwMakeContextCurrent(window);
 
