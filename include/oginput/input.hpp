@@ -7,6 +7,8 @@
 #ifndef OGI_INPUT_HPP
 #define OGI_INPUT_HPP
 
+#include <variant>
+
 namespace ogi {
     using device_id = int;  //!< Numerical ID number of devices.
 
@@ -209,6 +211,9 @@ namespace ogi {
     using mouse_axis_input = axis_input<mouse_axis>;            //!< Mouse axes (movement, scroll)
     using gamepad_button_input = button_input<gamepad_button>;  //!< Gamepad buttons
     using gamepad_axis_input = axis_input<gamepad_axis>;        //!< Gamepad axes (thumbsticks, triggers, etc..)
-};
+
+    using mouse_input = std::variant<mouse_button_input, mouse_axis_input>;         //!< Any mouse input
+    using gamepad_input = std::variant<gamepad_button_input, gamepad_axis_input>;   //!< Any gamepad input
+}
 
 #endif
