@@ -15,9 +15,10 @@
 
 #include "GLFW/glfw3.h"
 #include "oginput/ogi.hpp"
+#include "oginput/system.hpp"
 
 namespace ogiGLFW {
-    void init(GLFWwindow *window);
+    ogi::system init(GLFWwindow *window);
 }
 
 #endif

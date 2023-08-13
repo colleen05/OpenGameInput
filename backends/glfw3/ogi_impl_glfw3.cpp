@@ -12,8 +12,11 @@ void _key_callback(GLFWwindow* window, int key, int scancode, int action, int mo
     return;
 }
 
-void ogiGLFW::init(GLFWwindow *window) {
+ogi::system ogiGLFW::init(GLFWwindow *window) {
     ogi::print_lib_info();
+    ogi::system inputSystem;
+
     glfwSetKeyCallback(window, &_key_callback);
-    return;
+    
+    return inputSystem;
 }
