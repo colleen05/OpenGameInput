@@ -187,33 +187,12 @@ namespace ogi {
         right_trigger   = 5     //!< Right trigger depression
     };
 
-    enum class button_state {
-        up          = 0,    //!< Up; not pressed, held, or released.
-        pressed     = 1,    //!< Just been pressed.
-        down        = 2,    //!< Been held more than 1 frame.
-        released    = 3     //!< Just been released.
-    };
-
-    template<typename TButton>
-    struct button_input {
-        TButton button;     //!< Button code
-        button_state state; //!< Button state
-    };
-
-    template<typename TAxis>
-    struct axis_input {
-        TAxis axis;     //!< Axis code
-        float value;    //!< Value
-    };
-
-    using keyboard_input = button_input<keyboard_key>;          //!< Keyboard keys
-    using mouse_button_input = button_input<mouse_button>;      //!< Mouse buttons (clicks, etc..)
-    using mouse_axis_input = axis_input<mouse_axis>;            //!< Mouse axes (movement, scroll)
-    using gamepad_button_input = button_input<gamepad_button>;  //!< Gamepad buttons
-    using gamepad_axis_input = axis_input<gamepad_axis>;        //!< Gamepad axes (thumbsticks, triggers, etc..)
-
-    using mouse_input = std::variant<mouse_button_input, mouse_axis_input>;         //!< Any mouse input
-    using gamepad_input = std::variant<gamepad_button_input, gamepad_axis_input>;   //!< Any gamepad input
+    // enum class button_action {
+    //     up          = 0,    //!< Up; not pressed, held, or released.
+    //     pressed     = 1,    //!< Just been pressed.
+    //     down        = 2,    //!< Been held more than 1 frame.
+    //     released    = 3     //!< Just been released.
+    // };
 }
 
 #endif
