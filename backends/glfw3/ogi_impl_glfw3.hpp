@@ -18,7 +18,10 @@
 #include "oginput/system.hpp"
 
 namespace ogiGLFW {
-    ogi::system init(GLFWwindow *window);
+    static ogi::system *system;
+
+    ogi::system *init(GLFWwindow *window);
+    void shutdown();
 }
 
 #endif
