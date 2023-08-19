@@ -16,7 +16,7 @@ namespace ogi {
     struct event {
         TField which;
         TState state;
-        std::chrono::time_point when;
+        // std::chrono::time_point when;
     }; //!< Event template
 
     template<typename TButton>
