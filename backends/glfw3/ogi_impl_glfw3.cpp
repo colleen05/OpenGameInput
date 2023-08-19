@@ -22,3 +22,7 @@ ogi::system *ogiGLFW::init(GLFWwindow *window) {
     
     return ogiGLFW::system;
 }
+
+void ogiGLFW::shutdown() {
+    delete ogiGLFW::system;
+}
