@@ -8,9 +8,10 @@
 #define OGI_INPUT_HPP
 
 #include <variant>
+#include <utility>
 
 namespace ogi {
-    using device_id = int;  //!< Numerical ID number of devices.
+    using device_id = int;  //!< Numerical ID number of devices. -1 is used to denote an unspecified device.
 
     enum class device_type {
         unknown     = -1,   //!< Unknown HID device
@@ -187,12 +188,8 @@ namespace ogi {
         right_trigger   = 5     //!< Right trigger depression
     };
 
-    // enum class button_action {
-    //     up          = 0,    //!< Up; not pressed, held, or released.
-    //     pressed     = 1,    //!< Just been pressed.
-    //     down        = 2,    //!< Been held more than 1 frame.
-    //     released    = 3     //!< Just been released.
-    // };
+    using mouse_input = std::variant<mouse_button, mouse_axis>;
+    using gamepad_input = std::pair<device_id, std::variant<gamepad_button, gamepad_axis>>;
 }
 
 #endif
