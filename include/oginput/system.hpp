@@ -42,7 +42,7 @@ namespace ogi {
             void _clean_dead_listeners();
 
         public:
-            std::unordered_map<std::string, action_map> action_maps;
+            action_map actions;
 
             void register_event(keyboard_event event);
             void register_event(mouse_event event);
