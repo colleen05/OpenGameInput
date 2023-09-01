@@ -11,8 +11,9 @@
 
 #include <string>
 #include <vector>
+#include <map>
 #include <unordered_map>
-#include <unordered_set>
+#include <set>
 
 namespace ogi {
     enum class button_activity {
@@ -23,15 +24,15 @@ namespace ogi {
     };
 
     struct button_control {
-        std::unordered_set<keyboard_event> keyboard_events;   //!< Which keyboard events are counted.
-        std::unordered_set<mouse_event> mouse_events;         //!< Which mouse events are counted.
-        std::unordered_set<gamepad_event> gamepad_events;     //!< Which gamepad events are counted.
+        std::set<keyboard_event> keyboard_events;   //!< Which keyboard events are counted.
+        std::set<mouse_event> mouse_events;         //!< Which mouse events are counted.
+        std::set<gamepad_event> gamepad_events;     //!< Which gamepad events are counted.
     };
 
     struct scalar_control {
-        std::unordered_map<keyboard_key, float> keyboard_keys;    //!< Each accounted keyboard key weight.
-        std::unordered_map<mouse_input, float> mouse_inputs;      //!< Each accounted mouse input weight.
-        std::unordered_map<gamepad_input, float> gamepad_inputs;  //!< Each accounted gamepad input weight.
+        std::map<keyboard_key, float> keyboard_keys;    //!< Each accounted keyboard key weight.
+        std::map<mouse_input, float> mouse_inputs;      //!< Each accounted mouse input weight.
+        std::map<gamepad_input, float> gamepad_inputs;  //!< Each accounted gamepad input weight.
     };
 
     struct planar_control {
