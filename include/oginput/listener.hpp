@@ -29,7 +29,7 @@ namespace ogi {
             void set_callback(const std::string &action_name, callback callback_function);
             void clear_callback(const std::string &action_name);
             callback get_callback(const std::string &action_name);
-            void call(const std::string &action_name);
+            void invoke(const std::string &action_name);
 
             listener(std::unordered_map<std::string, callback> callbacks);
             listener();
