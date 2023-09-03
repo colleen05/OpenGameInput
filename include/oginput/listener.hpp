@@ -13,6 +13,8 @@
 #include <unordered_map>
 #include <functional>
 #include <string>
+#include <optional>
+#include <utility>
 
 namespace ogi {
     using button_callback = std::function<void(button_activity)>;
@@ -28,8 +30,10 @@ namespace ogi {
         public:
             void set_callback(const std::string &action_name, callback callback_function);
             void clear_callback(const std::string &action_name);
-            callback get_callback(const std::string &action_name);
-            void invoke(const std::string &action_name);
+            std::optional<callback> get_callback(const std::string &action_name);
+            
+            using invocation_args = std::variant<button_activity, float, std::pair<float, float>>;
+            void invoke(const std::string &action_name, invocation_args values);
 
             listener(std::unordered_map<std::string, callback> callbacks);
             listener();
