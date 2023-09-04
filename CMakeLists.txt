@@ -13,12 +13,13 @@ project(
 )
 set(CMAKE_CXX_STANDARD 17)
 
-# if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
-#     set(CMAKE_CXX_FLAGS "-gdwarf-4")
-# endif()
+if(CMAKE_BUILD_TYPE)
+    if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+        set(CMAKE_CXX_FLAGS "-gdwarf-4")
+    endif()
 
-# set(BUILD_SHARED_LIBS OFF)
-# set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
+    # set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
+endif()
 
 # OpenGameInput
 set(OGI_SOURCE_DIR "src")
