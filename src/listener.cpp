@@ -11,7 +11,8 @@ void ogi::listener::set_callback(const std::string &action_name, callback callba
 }
 
 void ogi::listener::clear_callback(const std::string &action_name) {
-
+    if(_callbacks.find(action_name) != _callbacks.end()) return;
+    _callbacks.erase(action_name);
 }
 
 std::optional<ogi::callback> ogi::listener::get_callback(const std::string &action_name) {
