@@ -34,7 +34,7 @@ namespace ogi {
 
             std::map<mouse_axis, float> _mouseAxisStates;
 
-            std::map<device_id, std::map<gamepad_axis, float>> _gampeadAxisStates;
+            std::map<device_id, std::map<gamepad_axis, float>> _gamepadAxisStates;
 
             std::vector<std::shared_ptr<listener>> _actionListeners;
             std::vector<size_t> _actionListenerGarbage;
@@ -46,7 +46,7 @@ namespace ogi {
 
             void register_event(keyboard_event event);
             void register_event(mouse_event event);
-            void register_event(gamepad_event event);
+            void register_event(device_id id, gamepad_event event);
 
             void push_listener(std::shared_ptr<listener> listener);
 

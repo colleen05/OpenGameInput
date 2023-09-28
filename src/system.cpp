@@ -21,11 +21,41 @@ void ogi::system::_clean_dead_listeners() {
     _actionListenerGarbage.clear();
 }
 
-void ogi::system::register_event(keyboard_event event) { }
+void ogi::system::register_event(keyboard_event event) {
+    _keyboardKeyStates.insert_or_assign(event.which, event.state);
+}
 
-void ogi::system::register_event(mouse_event event) { }
+void ogi::system::register_event(mouse_event event) {
+    try {
+        if(std::holds_alternative<mouse_button_event>(event)) {
+            auto e = std::get<mouse_button_event>(event);
+            _mouseButtonStates.insert_or_assign(e.which, e.state);
 
-void ogi::system::register_event(gamepad_event event) { }
+        }else if(std::holds_alternative<mouse_axis_event>(event)) {
+            auto e = std::get<mouse_axis_event>(event);
+            _mouseAxisStates.insert_or_assign(e.which, e.state);
+        }
+    } catch(std::exception &e) { }
+}
+
+void ogi::system::register_event(device_id id, gamepad_event event) {
+    try {
+        if(std::holds_alternative<gamepad_button_event>(event)) {
+            if(_gamepadButtonStates.find(id) == _gamepadButtonStates.end())
+                _gamepadButtonStates.insert(id, {}); 
+
+            auto e = std::get<gamepad_button_event>(event);
+            _gamepadButtonStates[id].insert_or_assign(e.which, e.state);
+
+        }else if(std::holds_alternative<gamepad_axis_event>(event)) {
+            if(_gamepadAxisStates.find(id) == _gamepadAxisStates.end())
+                _gamepadAxisStates.insert(id, {});
+
+            auto e = std::get<gamepad_axis_event>(event);
+            _gamepadAxisStates[id].insert_or_assign(e.which, e.state);
+        }
+    } catch(std::exception &e) { }
+}
 
 void ogi::system::update() {
     // Clean up dead listeners.
